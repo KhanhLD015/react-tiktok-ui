@@ -4,9 +4,11 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Button from '~/components/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import AccountItem from '~/components/AccountItem';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +17,7 @@ function Header() {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1, 2, 3]);
+      setSearchResult([]);
     }, 0);
   }, []);
 
@@ -30,7 +32,13 @@ function Header() {
             visible={SearchResult.length > 0}
             render={(attrs) => (
               <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                <PopperWrapper>Result</PopperWrapper>
+                <PopperWrapper>
+                  <h4 className={cx('search-title')}>Account</h4>
+                  <AccountItem />
+                  <AccountItem />
+                  <AccountItem />
+                  <AccountItem />
+                </PopperWrapper>
               </div>
             )}
           >
@@ -49,7 +57,10 @@ function Header() {
         </div>
 
         {/* action */}
-        <div className={cx('action')}></div>
+        <div className={cx('action')}>
+          <Button text>Upload</Button>
+          <Button primary>Log in</Button>
+        </div>
       </div>
     </header>
   );
