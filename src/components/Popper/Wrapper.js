@@ -1,10 +1,12 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import styles from './Popper.module.scss';
 
-function Wrapper({ children }) {
+const cx = classNames.bind(styles);
+
+function Wrapper({ children, className }) {
   return (
     <div>
-      <div className={classNames(styles['wrapper'])}>{children}</div>
+      <div className={classNames(styles[('wrapper', className)])}>{children}</div>
     </div>
   );
 }
