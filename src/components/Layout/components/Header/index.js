@@ -26,6 +26,21 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          type: 'language',
+          code: 'en',
+          title: 'English',
+        },
+        {
+          type: 'language',
+          code: 'vi',
+          title: 'Vietnamese',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -46,6 +61,16 @@ function Header() {
       setSearchResult([]);
     }, 0);
   }, []);
+
+  //Handle logic
+  const handleMenuChange = (MenuItem) => {
+    switch (MenuItem.type) {
+      case 'language':
+        //Handle language change
+        break;
+      default:
+    }
+  };
 
   return (
     <header className={cx('wrapper')}>
