@@ -32,6 +32,8 @@ import 'tippy.js/dist/tippy.css';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
+  //dùng để xuống dòng
+  {},
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
@@ -86,7 +88,7 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faUser} />,
       title: 'View profile',
-      to: '/@username',
+      to: '/@profile',
     },
     {
       icon: <FontAwesomeIcon icon={faCoins} />,
