@@ -38,6 +38,7 @@ function Menu({ children, items = [], onChange }) {
     <Tippy
       interactive
       delay={[0, 700]}
+      offset={[12, 8]}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx('menu-items')} tabIndex="-1" {...attrs}>
@@ -54,6 +55,8 @@ function Menu({ children, items = [], onChange }) {
           </PopperWrapper>
         </div>
       )}
+      //Khi hover ra ngoài thì sẽ quay lai trang dau tien
+      onHide={() => setHistory((prev) => prev.slice(0, 1))}
     >
       {children}
     </Tippy>
